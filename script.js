@@ -15,11 +15,11 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 
 // function askHowManyCharacters() {
   var numCharacters = window.prompt("How any character would you like in the password? Choose a number between 8 and 128.");
-  numberOfCharacters = parseInt(numberOfCharacters);  
+  numCharacters = parseInt(numberOfCharacters);  
   console.log(numberOfCharacters);
 
   // If number isn't between 8 and 128:
-if (numberOfCharacters < 8 || numberOfCharacters < 128)
+if (numberOfCharacters < 8 || numberOfCharacters > 128)
 console.log("Please choose a number between 8 and 128.");
 // }
 
@@ -41,33 +41,31 @@ console.log("Please choose a number between 8 and 128.");
   console.log(allowLowerCase);
 // }
 
-
 // function askUpperCase() {
   allowUpperCase = window.confirm("Would you like to include uppper case letters?");
   console.log(allowUpperCase);
 // }
 
-
   
-//If all characters are chosen:
+//Make chosen array:
 if (allowSpecialCharacters) {
-  console.log("Use special characters.");
+  allowedCharacters = allowedCharacters.concat(specialCharacters);
 }
 
 if (allowNumbers) {
-  console.log("Use numbers.");
+  allowedCharacters = allowedCharacters.concat(numbers);
 }
 
 if (allowLowerCase) {
-  console.log("Use lower case.");
+  allowedCharacters = allowedCharacters.concat(lowerCase);
 }
 
 if (allowUpperCase) {
-  console.log ("Use upper case.")
+  allowedCharacters = allowedCharacters.concat(upperCase);
 }
   
-  
-//allowedCharacters= ["specialCharacters", "numbers", "lowerCase", "upperCase"];
+console.log(allowedCharacters);
+
 
 
 //If no characters are chosen:
