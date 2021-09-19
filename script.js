@@ -1,4 +1,4 @@
-// Define global variables
+// Defines global variables
 var numberOfCharacters = ""
 var allowSpecialCharacters = ""
 var allowNumbers = ""
@@ -8,82 +8,88 @@ var allowUpperCase = ""
 var allowedCharacters = []
 var passwordCharacters = ""
 
-var specialCharacters = [".", "!", "?", "#", "$", "%", "&", "@", "^"];
+var specialCharacters = [".", "!", "?", "#", "$", "%", "&", "@", "^", "*", "(", ")", "=", ":", ";"];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-
-
-// function askHowManyCharacters() {
+// Function to prompt user to enter a number of characters and validates if the user inputs an amount outside of the given parameters: 
+function askHowManyCharacters() {
   var numCharacters = window.prompt("How any character would you like in the password? Choose a number between 8 and 128.");
   numberOfCharacters = parseInt(numCharacters);  
-  // console.log(numberOfCharacters);
 
-  // If number isn't between 8 and 128:
+  // Still need a while function here: 
 if (numberOfCharacters < 8 || numberOfCharacters > 128)
-console.log("Please choose a number between 8 and 128.");
-// }
+window.prompt("Your number was not between 8 and 128. Please choose a number between 8 and 128.");
+}
+
+// Take this out after adding to super function:
+askHowManyCharacters();
 
 
-// function askSpecialCharacters() {
-  allowSpecialCharacters = window.confirm("Would you like to include special characters?");
-  console.log(allowSpecialCharacters);
-// }
-
-
-// function askNumbers() {
-  allowNumbers = window.confirm("Would you like to include numbers?");
-  console.log(allowNumbers);
-// }
-
-
-// function askLowerCase() {
- allowLowerCase = window.confirm("Would you like to include lower case letters?");
-  console.log(allowLowerCase);
-// }
-
-// function askUpperCase() {
-  allowUpperCase = window.confirm("Would you like to include uppper case letters?");
-  console.log(allowUpperCase);
-// }
-
+// Function that has user confirm which character types to include in the password: 
+function confirmCharacterTypes() {
+  allowSpecialCharacters = window.confirm("Would you like to include special characters in the password?");
   
-//Make chosen array:
-if (allowSpecialCharacters) {
-  allowedCharacters = allowedCharacters.concat(specialCharacters);
-}
-
-if (allowNumbers) {
-  allowedCharacters = allowedCharacters.concat(numbers);
-}
-
-if (allowLowerCase) {
-  allowedCharacters = allowedCharacters.concat(lowerCase);
-}
-
-if (allowUpperCase) {
-  allowedCharacters = allowedCharacters.concat(upperCase);
-}
+  allowNumbers = window.confirm("Would you like to include numbers in the password?");
   
+  allowLowerCase = window.confirm("Would you like to include lower case letters in the password?");
+  
+  allowUpperCase = window.confirm("Would you like to include uppper case letters in the password?");
 
-//If no characters are chosen:
-if (!allowSpecialCharacters && !allowNumbers && !allowLowerCase && !allowUpperCase) {
+//  Add while loop here:
+  if (!allowSpecialCharacters && !allowNumbers && !allowLowerCase && !allowUpperCase) {
   console.log("You haven't chosen any characters. Please select again");
+  }
 }
 
-console.log(allowedCharacters.length)
-//For loop for character selection
-for (var i = 0; i < numberOfCharacters; i++) {
-   passwordCharacters+= allowedCharacters[Math.floor(Math.random() * allowedCharacters.length)];
-   
+//Delete this later once added to super function:
+confirmCharacterTypes();
+
+  
+//Function that generates string of random characters from chosen character types:
+function genCharacterArray () {
+  if (allowSpecialCharacters) {
+    allowedCharacters = allowedCharacters.concat(specialCharacters);
+  }
+
+  if (allowNumbers) {
+    allowedCharacters = allowedCharacters.concat(numbers);
+  }
+
+  if (allowLowerCase) {
+    allowedCharacters = allowedCharacters.concat(lowerCase);
+  }
+
+  if (allowUpperCase) {
+    allowedCharacters = allowedCharacters.concat(upperCase);
+  }
 }
-    
-console.log(passwordCharacters)
+//Delete this later once added to super function:
+genCharacterArray();
+
+//Function for generating a string of random characters for password
+function genRandomChars() {
+  for (var i = 0; i < numberOfCharacters; i++) {
+    passwordCharacters+= allowedCharacters[Math.floor(Math.random() * allowedCharacters.length)];
+  }
+}
+
+// Delete later when linked to super function
+genRandomChars();
 
 
 
-// Assignment Code
+// // Function to call the other functions to generate passwork:
+// function generatePassword() {
+
+
+
+// }
+
+console.log(passwordCharacters);
+
+
 // var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
