@@ -15,7 +15,7 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 
 // function askHowManyCharacters() {
   var numCharacters = window.prompt("How any character would you like in the password? Choose a number between 8 and 128.");
-  numCharacters = parseInt(numberOfCharacters);  
+  numberOfCharacters = parseInt(numCharacters);  
   console.log(numberOfCharacters);
 
   // If number isn't between 8 and 128:
