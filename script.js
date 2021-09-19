@@ -20,12 +20,8 @@ function askHowManyCharacters() {
 
   // Still need a while function here: 
 if (numberOfCharacters < 8 || numberOfCharacters > 128)
-window.prompt("Your number was not between 8 and 128. Please choose a number between 8 and 128.");
+  window.prompt("Your number was not between 8 and 128. Please choose a number between 8 and 128.");
 }
-
-// Take this out after adding to super function:
-askHowManyCharacters();
-
 
 // Function that has user confirm which character types to include in the password: 
 function confirmCharacterTypes() {
@@ -39,13 +35,9 @@ function confirmCharacterTypes() {
 
 //  Add while loop here:
   if (!allowSpecialCharacters && !allowNumbers && !allowLowerCase && !allowUpperCase) {
-  console.log("You haven't chosen any characters. Please select again");
+    window.prompt("You haven't chosen any characters. Please select again");
   }
 }
-
-//Delete this later once added to super function:
-confirmCharacterTypes();
-
   
 //Function that generates string of random characters from chosen character types:
 function genCharacterArray () {
@@ -65,8 +57,6 @@ function genCharacterArray () {
     allowedCharacters = allowedCharacters.concat(upperCase);
   }
 }
-//Delete this later once added to super function:
-genCharacterArray();
 
 //Function for generating a string of random characters for password
 function genRandomChars() {
@@ -75,10 +65,6 @@ function genRandomChars() {
   }
 }
 
-// Delete later when linked to super function
-genRandomChars();
-
-
 
 // // Function to call the other functions to generate passwork:
 function generatePassword() {
@@ -86,22 +72,20 @@ function generatePassword() {
   confirmCharacterTypes();
   genCharacterArray();
   genRandomChars();
+  return passwordCharacters;
 }
 
-// Delete later when super function works:
-console.log(passwordCharacters);
 
-
-// var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
-// }
+}
 
 // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
