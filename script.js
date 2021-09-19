@@ -81,12 +81,14 @@ genRandomChars();
 
 
 // // Function to call the other functions to generate passwork:
-// function generatePassword() {
+function generatePassword() {
+  askHowManyCharacters();
+  confirmCharacterTypes();
+  genCharacterArray();
+  genRandomChars();
+}
 
-
-
-// }
-
+// Delete later when super function works:
 console.log(passwordCharacters);
 
 
