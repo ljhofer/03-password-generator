@@ -6,6 +6,7 @@ var allowLowerCase = ""
 var allowUpperCase = ""
 
 var allowedCharacters = ""
+var password = ""
 
 var specialCharacters = [".", "!", "?", "#", "$", "%", "&", "@", "^"];
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,];
@@ -64,17 +65,21 @@ if (allowUpperCase) {
   allowedCharacters = allowedCharacters.concat(upperCase);
 }
   
-console.log(allowedCharacters);
-
-
 
 //If no characters are chosen:
 if (!allowSpecialCharacters && !allowNumbers && !allowLowerCase && !allowUpperCase) {
   console.log("You haven't chosen any characters. Please select again");
 }
 
-
-
+//For loop for character selection
+for (var i = 0; i < numberOfCharacters; i++) {
+   password = allowedCharacters[Math.floor(Math.random() * numberOfCharacters)];
+   console.log(password)
+  
+  // var sentence = "Your password is "+ password + ".";
+  // return sentence;
+}
+    
 
 
 
