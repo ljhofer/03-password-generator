@@ -44,6 +44,7 @@ function confirmCharacterTypes() {
   
 //Function that generates an array of allowed characters from chosen character types:
 function genCharacterArray () {
+  allowedCharacters= [];
   if (allowSpecialCharacters) {
     allowedCharacters = allowedCharacters.concat(specialCharacters);
   }
