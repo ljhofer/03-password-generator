@@ -17,10 +17,11 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 function askHowManyCharacters() {
   var numCharacters = window.prompt("How any character would you like in the password? Choose a number between 8 and 128.");
   numberOfCharacters = parseInt(numCharacters);  
-
-  // Still need a while function here: 
-if (numberOfCharacters < 8 || numberOfCharacters > 128)
-  window.prompt("Your number was not between 8 and 128. Please choose a number between 8 and 128.");
+ 
+  while (numberOfCharacters < 8 || numberOfCharacters > 128) {
+    window.confirm("Your number was not between 8 and 128. Please choose a number between 8 and 128.");
+    askHowManyCharacters();
+  }
 }
 
 // Function that has user confirm which character types to include in the password: 
@@ -33,9 +34,9 @@ function confirmCharacterTypes() {
   
   allowUpperCase = window.confirm("Would you like to include uppper case letters in the password?");
 
-//  Add while loop here:
-  if (!allowSpecialCharacters && !allowNumbers && !allowLowerCase && !allowUpperCase) {
-    window.prompt("You haven't chosen any characters. Please select again");
+  while (!allowSpecialCharacters && !allowNumbers && !allowLowerCase && !allowUpperCase) {
+    window.confirm("You haven't chosen any characters. Please select again");
+    confirmCharacterTypes();
   }
 }
   
@@ -56,7 +57,9 @@ function genCharacterArray () {
   if (allowUpperCase) {
     allowedCharacters = allowedCharacters.concat(upperCase);
   }
+  console.log(allowedCharacters);
 }
+
 
 //Function for generating a string of random characters for password
 function genRandomChars() {
@@ -68,6 +71,7 @@ function genRandomChars() {
 
 // // Function to call the other functions to generate passwork:
 function generatePassword() {
+  // Reset the value of the passwordCharacters and allowedCharacters
   askHowManyCharacters();
   confirmCharacterTypes();
   genCharacterArray();
