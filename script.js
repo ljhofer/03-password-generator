@@ -44,6 +44,9 @@ function confirmCharacterTypes() {
   
 //Function that generates an array of allowed characters from chosen character types:
 function genCharacterArray () {
+  console.log("special:", allowSpecialCharacters);
+  console.log("allowNumbers", allowNumbers);
+
   if (allowSpecialCharacters) {
     allowedCharacters = allowedCharacters.concat(specialCharacters);
   }
@@ -64,15 +67,15 @@ function genCharacterArray () {
 
 //Function for generating a string of random characters for password:
 function genRandomChars() {
+  passwordCharacters = "";
   for (var i = 0; i < numberOfCharacters; i++) {
-    passwordCharacters+= allowedCharacters[Math.floor(Math.random() * allowedCharacters.length)];
+    passwordCharacters += allowedCharacters[Math.floor(Math.random() * allowedCharacters.length)];
   }
 }
 
 
 // // Function to call the other functions to generate passwork:
 function generatePassword() {
-  // Reset the value of the passwordCharacters and allowedCharacters
   askHowManyCharacters();
   confirmCharacterTypes();
   genCharacterArray();
@@ -80,14 +83,14 @@ function generatePassword() {
   return passwordCharacters;
 }
 
-
+// Makes a variable to store the reference to the HTML generate button:
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  passwordText.value = "";
   passwordText.value = password;
 
 }
