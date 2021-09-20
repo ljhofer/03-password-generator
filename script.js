@@ -18,7 +18,7 @@ function askHowManyCharacters() {
   var numCharacters = window.prompt("How any character would you like in the password? Choose a number between 8 and 128.");
   numberOfCharacters = parseInt(numCharacters);
 
-    if (numberOfCharacters > 8 && numberOfCharacters < 128) {
+    if (numberOfCharacters >= 8 && numberOfCharacters <= 128) {
       return
     } else {
       window.confirm("You did not enter a number between 8 and 128. Please try again.");
@@ -26,7 +26,7 @@ function askHowManyCharacters() {
     }
 }
 
-// Function that has user confirm which character types to include in the password: 
+// Function that has user confirm which character types to include in the password and validates that at least one type is selected: 
 function confirmCharacterTypes() {
   allowSpecialCharacters = window.confirm("Would you like to include special characters in the password?");
   
@@ -42,7 +42,7 @@ function confirmCharacterTypes() {
   }
 }
   
-//Function that generates string of random characters from chosen character types:
+//Function that generates an array of allowed characters from chosen character types:
 function genCharacterArray () {
   if (allowSpecialCharacters) {
     allowedCharacters = allowedCharacters.concat(specialCharacters);
@@ -59,11 +59,10 @@ function genCharacterArray () {
   if (allowUpperCase) {
     allowedCharacters = allowedCharacters.concat(upperCase);
   }
-  console.log(allowedCharacters);
-}
+ }
 
 
-//Function for generating a string of random characters for password
+//Function for generating a string of random characters for password:
 function genRandomChars() {
   for (var i = 0; i < numberOfCharacters; i++) {
     passwordCharacters+= allowedCharacters[Math.floor(Math.random() * allowedCharacters.length)];
