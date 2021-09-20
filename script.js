@@ -16,12 +16,14 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 // Function to prompt user to enter a number of characters and validates if the user inputs an amount outside of the given parameters: 
 function askHowManyCharacters() {
   var numCharacters = window.prompt("How any character would you like in the password? Choose a number between 8 and 128.");
-  numberOfCharacters = parseInt(numCharacters);  
- 
-  while (numberOfCharacters < 8 || numberOfCharacters > 128) {
-    window.confirm("Your number was not between 8 and 128. Please choose a number between 8 and 128.");
-    askHowManyCharacters();
-  }
+  numberOfCharacters = parseInt(numCharacters);
+
+    if (numberOfCharacters > 8 && numberOfCharacters < 128) {
+      return
+    } else {
+      window.confirm("You did not enter a number between 8 and 128. Please try again.");
+      askHowManyCharacters();
+    }
 }
 
 // Function that has user confirm which character types to include in the password: 
