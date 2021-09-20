@@ -44,9 +44,6 @@ function confirmCharacterTypes() {
   
 //Function that generates an array of allowed characters from chosen character types:
 function genCharacterArray () {
-  console.log("special:", allowSpecialCharacters);
-  console.log("allowNumbers", allowNumbers);
-
   if (allowSpecialCharacters) {
     allowedCharacters = allowedCharacters.concat(specialCharacters);
   }
@@ -92,7 +89,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = "";
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button

@@ -3,15 +3,13 @@ Bootcamp Homework #3
 
 ## Objective
 
-<!-- Rewrite -->
-Created a professional portfolio that includes About Me, Project, and Contact sections. The page is responsive to different display sizes.  
+Created a password generator that allows user to select a number of characters and character types and returns a randomly generated password using chosen criteria. 
 
 ## Screen Shot
 
-<!-- Upload screen shot -->
-![Here is a link to a screen shot of the home page.](./assets/images/portfolio_screen_shot.png)  
+![Here is a link to a screen shot of the home page.](./Assets/screenshot.png)
+
 
 ## Link to deployed page
 
-<!-- Upload link -->
-[Here is the link to my deployed code.](https://ljhofer.github.io/02-advanced-css-portfolio/)
+[Here is the link to my deployed code.](https://ljhofer.github.io/03-password-generator/)
